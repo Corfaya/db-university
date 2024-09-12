@@ -31,6 +31,11 @@ FROM `exams`
 WHERE `hour` > "13:59:59" AND `date` = "2020-06-20";
 
 6. Selezionare tutti i corsi di laurea magistrale (38)
+
+SELECT *
+FROM `degrees`
+WHERE `level` = "Magistrale";
+
 7. Da quanti dipartimenti è composta l'università? (12)
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
