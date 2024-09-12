@@ -49,5 +49,8 @@ WHERE `phone` IS NULL;
 
 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
 degree_id, inserire un valore casuale)
+
+INSERT INTO `students`(`degree_id`, `name`, `surname`, `date_of_birth`, `fiscal_code`, `enrolment_date`, `registration_number`, `email`) VALUES ('33','Letizia','Corrado','1990-06-15','PAPAPAPAPAPAPAP','2020-09-05','177255','letiziacorrado@boolean.it');
+
 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
