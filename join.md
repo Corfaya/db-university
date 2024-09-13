@@ -76,6 +76,7 @@ JOIN `degrees` ON `departments`.`id` = `degrees`.`department_id`
 JOIN `courses` ON `courses`.`degree_id` = `degrees`.`id`
 JOIN `course_teacher` ON `course_teacher`.`course_id` = `courses`.`id`
 JOIN `teachers` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+GROUP BY `teachers`.`surname`, `teachers`.`name`
 WHERE `departments`.`name` = "Dipartimento di Matematica";
 
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
