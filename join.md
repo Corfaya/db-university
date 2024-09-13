@@ -59,7 +59,7 @@ JOIN `degrees` ON `degrees`.`department_id` = `departments`.`id`
 JOIN `students`ON `students`.`degree_id` = `degrees`.`id`
 ORDER BY `students`.`surname`, `students`.`name` ASC;
 
-5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti <!-- chiedere -->
+5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
 
 SELECT `degrees`.`name` as "CdS", `courses`.`name` as "class_name", `teachers`.`surname` as "surname_teacher", `teachers`.`name` as "name_teacher"
 FROM `degrees`
@@ -82,9 +82,10 @@ WHERE `departments`.`name` = "Dipartimento di Matematica";
 per ogni esame, stampando anche il voto massimo. Successivamente,
 filtrare i tentativi con voto minimo 18.
 
-SELECT `students`.`id`, COUNT(`exam_student`.`exam_id`) as "attempts", `students`.`surname`, `students`.`name`, `courses`.`name` as "course_name", MAX(`exam_student`.`vote`) as "max_vote"
+SELECT `students`.`id`, COUNT(`exam_student`.`exam_id`) as "attempts", `students`.`surname`, `students`.`name`, `courses`.`name` as "course_name", MAX(`exam_student`.`vote`) as "max_vote", MIN(`exam_student`.`vote`) as "min_vote"
 FROM `courses`
 JOIN `exams` ON `exams`.`course_id` = `courses`.`id`
 JOIN `exam_student` ON `exam_student`.`exam_id` = `exams`.`id`
 JOIN `students` ON `students`.`id` = `exam_student`.`student_id`
-GROUP BY `students`.`id`;`
+GROUP BY `students`.`id`
+HAVING MIN(`exam_student`.`vote`) >= 18;
